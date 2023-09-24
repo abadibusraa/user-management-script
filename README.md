@@ -6,12 +6,12 @@ This User Management Script is a Bash script designed to simplfy user account ma
 
 ## Features
 
-**Create User**: Easily create a new user account. The script checks for existing username to prevent duplicates.
-**Change Password**: Quickly change a user's password, ensuring account security.
-**Add Supplementary Group**: Choose to add a supplementary group to a user during account creation.
-**Delete User**: Safely delete user accounts, including their home directories, while verifying the existence of the user.
-**List User Accounts**: Display a list of all user accounts on the system.
-**User-Friendly Menu**: A clear and interactive menu guides you through user management options.
+- **Create User**: Easily create a new user account. The script checks for existing username to prevent duplicates.
+- **Change Password**: Quickly change a user's password, ensuring account security.
+- **Add Supplementary Group**: Choose to add a supplementary group to a user during account creation.
+- **Delete User**: Safely delete user accounts, including their home directories, while verifying the existence of the user.
+- **List User Accounts**: Display a list of all user accounts on the system.
+- **User-Friendly Menu**: A clear and interactive menu guides you through user management options.
 
 ## Prerequisites
 
