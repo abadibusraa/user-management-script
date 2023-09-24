@@ -1,0 +1,173 @@
+#!/bin/bash
+
+
+# User Management Script
+
+
+# Function to create a new user
+
+create_user() {
+
+	read -p "Enter username: " username
+
+	# Check if the user already exists and redirect the default output
+
+	if id "$username" &>/dev/null; then
+
+		echo "User $username already exist."
+
+	else	
+
+		sudo useradd $username
+
+		echo "User $username created."
+
+	fi
+
+}
+
+
+
+# Function to create or change passwd
+
+
+
+change_passwd(){
+
+	read -p "Enter username to change password: " username
+
+	if id $username &>/dev/null; then
+
+		sudo passwd $username
+
+	else
+
+		echo "User $usernmae is not exist."
+
+	fi
+
+	
+
+}
+
+# Function to add supplementary group
+
+add_supplementary_group(){
+
+	read -p "Enter username: " username
+
+	read -p "Enter group name: " groupname
+
+	if id "$username" &>/dev/null && getent group "$groupname" &>/dev/null; then
+
+		sudo usermod -aG $groupname $username
+
+	else
+
+		echo "User $username or group $groupname do not exist."
+
+	fi
+
+}
+
+
+
+# Function to delete a user
+
+delete_user(){
+
+	read -p "Enter username to delete: " username
+
+
+
+	if id "$username" &>/dev/null; then
+
+		sudo userdel -r $username
+
+		echo "User $username is deleted."
+
+	else
+
+		echo "User $username does not exist"
+
+	fi
+
+}
+
+
+
+# Function to list users
+
+list_users(){
+
+	echo "List of Users:"
+
+	sudo cut -d: -f1 /etc/passwd
+
+}
+
+
+
+while true; do
+
+	echo "User Management Script"
+
+	echo "1.Create User"
+
+	echo "2. Change Password"
+
+	echo "3. Add Supplementary Group"
+
+	echo "4. Delete User"
+
+	echo "5. List Users"
+
+	echo "6. Quit"
+
+	read -p "Enter your choice: " choice
+
+
+
+	case $choice in
+
+		1)create_user
+
+	
+			;;
+
+		2)change_passwd
+
+			;;
+
+		3)add_supplementary_group
+
+			
+
+			;;
+
+		4)delete_user
+
+			
+
+			;;
+
+		5)list_users
+
+			
+
+			;;
+
+		6)echo "Exiting User Management Script."
+
+			exit 0
+
+			;;	
+
+		*)echo "Invalid choice." 
+
+			;;
+
+	 esac
+
+done
+
