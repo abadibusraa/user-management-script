@@ -1,6 +1,7 @@
 #!/bin/bash
 
-
+#This is for learning Git
+echo 'Hello Busraaa'
 # User Management Script
 
 
